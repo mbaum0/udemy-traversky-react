@@ -2,3 +2,6 @@
 *yarn.lock
 *.env.local
 *build/
+
+# Local Netlify folder
+.netlify
