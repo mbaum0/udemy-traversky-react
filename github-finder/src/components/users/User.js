@@ -1,19 +1,22 @@
 import { Fragment, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
-import PropTypes from 'prop-types';
 import Repos from '../repos/Repos';
 import { FaCheck } from 'react-icons/fa';
 import { FaTimesCircle } from 'react-icons/fa';
+import GithubContext from '../../context/github/githubContext';
+import { useContext } from 'react';
 
-const User = ({ getUser, user, loading, getUserRepos, repos }) => {
+const User = () => {
   const { username } = useParams();
+  const githubContext = useContext(GithubContext);
 
   // run this if/when getUser/username changes
   useEffect(() => {
-    getUser(username);
-    getUserRepos(username);
-  }, [getUser, getUserRepos, username]);
+    githubContext.getUser(username);
+    githubContext.getUserRepos(username);
+    // eslint-disable-next-line
+  }, []);
 
   const {
     name,
@@ -29,9 +32,9 @@ const User = ({ getUser, user, loading, getUserRepos, repos }) => {
     public_repos,
     public_gists,
     hireable,
-  } = user;
+  } = githubContext.user;
 
-  if (loading) {
+  if (githubContext.loading) {
     return <Spinner />;
   } else {
     return (
@@ -102,18 +105,10 @@ const User = ({ getUser, user, loading, getUserRepos, repos }) => {
           </div>
           <div className='badge badge-dark'>Public Gists: {public_gists}</div>
         </div>
-        <Repos repos={repos} />
+        <Repos />
       </Fragment>
     );
   }
-};
-
-User.propTypes = {
-  getUser: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
-  getUserRepos: PropTypes.func.isRequired,
-  repos: PropTypes.array.isRequired,
 };
 
 export default User;
