@@ -1,4 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://michael123:michael123@contactkeeper.1xw1n.mongodb.net/ContactKeeper?retryWrites=true&w=majority",
-  "jwtSecret": "mysuperdoopersecretcode"
-}

@@ -2,6 +2,7 @@
 *yarn.lock
 *.env.local
 *build/
+*default.json
 
 # Local Netlify folder
 .netlify
