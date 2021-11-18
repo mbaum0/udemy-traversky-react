@@ -6,6 +6,11 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
+const secret =
+  process.env.NODE_ENV === 'production'
+    ? process.env.mongoURI
+    : config.get('jwtSecret');
+
 // @route       POST api/users
 // @desc        Register a user
 // @access      Public
@@ -47,7 +52,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        config.get(secret),
         {
           expiresIn: 360000,
         },

@@ -8,6 +8,11 @@ const { check, validationResult } = require('express-validator');
 
 const authUser = require('../middleware/auth');
 
+const secret =
+  process.env.NODE_ENV === 'production'
+    ? process.env.mongoURI
+    : config.get('jwtSecret');
+
 // @route       GET api/auth
 // @desc        Get logged in user
 // @access      Private
@@ -59,7 +64,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        secret,
         {
           expiresIn: 360000,
         },

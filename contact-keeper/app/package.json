@@ -10,7 +10,8 @@
     "server": "nodemon server.js",
     "client": "yarn --cwd client start",
     "clientinstall": "yarn --cwd client install",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd client install && yarn --cwd client build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -23,5 +24,8 @@
   "devDependencies": {
     "concurrently": "^6.4.0",
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "v16.x"
   }
 }
