@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.jsxSingleQuote": true
+}
