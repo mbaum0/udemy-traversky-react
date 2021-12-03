@@ -1,0 +1,29 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Swapped HD on ws 1234",
+      "attention": false,
+      "date": "2019-05-31T15:46:10.179Z",
+      "tech": "Carol Baskins"
+    },
+    {
+      "id": 2,
+      "message": "Swapped Disk on ws 1234",
+      "attention": true,
+      "date": "2019-05-31T15:46:10.179Z",
+      "tech": "Arnold Palmer"
+    },
+    {
+      "id": 3,
+      "message": "Filled WS 67 with beans",
+      "attention": true,
+      "date": "2019-05-31T15:46:10.179Z",
+      "tech": "Carol Baskins"
+    }
+  ],
+  "techs": [
+    { "id": 1, "firstName": "Carol", "lastName": "Baskins" },
+    { "id": 2, "firstName": "Arnold", "lastName": "Palmer" }
+  ]
+}
