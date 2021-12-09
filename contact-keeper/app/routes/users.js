@@ -6,6 +6,10 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
+if (!config.has('jwtSecret')) {
+  console.error('FATAL ERROR: jwtPrivateKey is not defined');
+}
+
 const secret =
   process.env.NODE_ENV === 'production'
     ? process.env.mongoURI
@@ -52,7 +56,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get(secret),
+        secret,
         {
           expiresIn: 360000,
         },
