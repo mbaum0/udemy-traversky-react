@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddLogModal = () => {
-  const [message, setMessage] = useState('');
-  const [attention, setAttention] = useState(false);
-  const [tech, setTech] = useState('');
+const AddTechModal = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const onSubmit = () => {
-    if (message === '' || tech === '') {
-      M.toast({ html: 'Please enter a message and tech' });
+    if (firstName === '' || lastName === '') {
+      M.toast({ html: 'Please enter a first and last name' });
     } else {
       console.log('Submitted');
 
       // clear fields
-      setMessage('');
-      setAttention(false);
-      setTech('');
+      setFirstName('');
+      setLastName('');
     }
   };
 
@@ -88,4 +86,4 @@ const modalStyle = {
   height: '75%',
 };
 
-export default AddLogModal;
+export default AddTechModal;
